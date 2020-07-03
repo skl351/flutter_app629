@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -12,23 +8,57 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
+class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     print("HomePage");
   }
+
   @override
   Widget build(BuildContext context) {
-    super.build(context);//必须添加.....        ));
-   return Scaffold(
-     body: Text("HomePage"),
-   );
+    return Scaffold(
+        backgroundColor: Colors.grey,
+        body: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.all(13),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: Container(
+                      padding: EdgeInsets.all(13),
+                      color: Colors.white,
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                '即将开始的训练营',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Container(
+                                width: 200,
+                                  height: 300,
+                                  child: ListView.builder(
+                                    itemCount: 10,
+                                    itemBuilder: (context, index) {
+                                      return Container(
+                                        alignment: Alignment.center,
+                                        height: 100,
+                                        color: Colors.red,
+                                        padding: EdgeInsets.all(10),
+                                        child: Text('asd'),
+                                      );
+                                    },
+                                  ))
+                            ],
+                          )
+                        ],
+                      ))),
+            )
+          ],
+        ));
   }
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
-
 }
